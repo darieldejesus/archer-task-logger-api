@@ -50,10 +50,25 @@ class Team
     /**
      * @var Customer The customer (owner) of this team.
      * 
-     * @Assert\Valid
+     * @Assert\NotNull
      * @ORM\ManyToOne(targetEntity="Customer", inversedBy="teams")
      */
     private $customer;
+
+    /**
+     * @var User[] Users which belong to this team.
+     *
+     * @ORM\OneToMany(targetEntity="User", mappedBy="team")
+     */
+    private $users;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -135,5 +150,39 @@ class Team
     public function getCustomer()
     {
         return $this->customer;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Team
+     */
+    public function addUser(\AppBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \AppBundle\Entity\User $user
+     */
+    public function removeUser(\AppBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

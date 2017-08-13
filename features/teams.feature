@@ -56,7 +56,8 @@ Feature: Manage teams and their customers.
       "id": 1,
       "name": "DR-Team",
       "status": 2,
-      "customer": "/customers/1"
+      "customer": "/customers/1",
+      "users": []
     }
     """
 
@@ -75,7 +76,8 @@ Feature: Manage teams and their customers.
       "id": 1,
       "name": "DR-Team",
       "status": 2,
-      "customer": "/customers/1"
+      "customer": "/customers/1",
+      "users": []
     }
     """
 
@@ -98,7 +100,8 @@ Feature: Manage teams and their customers.
           "id": 1,
           "name": "DR-Team",
           "status": 2,
-          "customer": "/customers/1"
+          "customer": "/customers/1",
+          "users": []
         }
       ],
       "hydra:totalItems": 1
@@ -128,7 +131,8 @@ Feature: Manage teams and their customers.
       "id": 1,
       "name": "DR-Team",
       "status": 0,
-      "customer": "/customers/1"
+      "customer": "/customers/1",
+      "users": []
     }
     """
 

@@ -1,5 +1,5 @@
-Feature: Manage projects and their customers.
-  In order to manage projects along with their customers
+Feature: Manage tasks along with their projects.
+  In order to manage tasks along with their projects
   As a client software developer
   I need to be able to create, retrieve, update them through the API.
 
@@ -59,7 +59,8 @@ Feature: Manage projects and their customers.
       "url": "http://example.com/board/Glasses",
       "status": 2,
       "customer": "/customers/1",
-      "tasks": []
+      "tasks": [],
+      "users": []
     }
     """
 

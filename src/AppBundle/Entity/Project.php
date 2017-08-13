@@ -58,8 +58,8 @@ class Project
     /**
      * @var Customer The customer (owner) of this project.
      * 
-     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="projects")
      * @Assert\NotNull
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="projects")
      */
     private $customer;
 
@@ -67,15 +67,23 @@ class Project
      * @var Task[] The tasks that belong to this project.
      * 
      * @ORM\OneToMany(targetEntity="Task", mappedBy="project")
-     * @Assert\NotNull
      */
     private $tasks;
+
+    /**
+     * @var User[] The users that belong to this project.
+     *
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="projects")
+     */
+    private $users;
+
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->tasks = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -216,5 +224,39 @@ class Project
     public function getTasks()
     {
         return $this->tasks;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Project
+     */
+    public function addUser(\AppBundle\Entity\User $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \AppBundle\Entity\User $user
+     */
+    public function removeUser(\AppBundle\Entity\User $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

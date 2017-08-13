@@ -59,7 +59,8 @@ Feature: Manage projects and their customers.
       "url": "http://example.com/board/Glasses",
       "status": 2,
       "customer": "/customers/1",
-      "tasks": []
+      "tasks": [],
+      "users": []
     }
     """
 
@@ -80,7 +81,8 @@ Feature: Manage projects and their customers.
       "url": "http://example.com/board/Glasses",
       "status": 2,
       "customer": "/customers/1",
-      "tasks": []
+      "tasks": [],
+      "users": []
     }
     """
 
@@ -105,7 +107,8 @@ Feature: Manage projects and their customers.
           "url": "http://example.com/board/Glasses",
           "status": 2,
           "customer": "/customers/1",
-          "tasks": []
+          "tasks": [],
+          "users": []
         }
       ],
       "hydra:totalItems": 1
@@ -135,7 +138,8 @@ Feature: Manage projects and their customers.
       "url": "http://example.com/board/Glasses",
       "status": 0,
       "customer": "/customers/1",
-      "tasks": []
+      "tasks": [],
+      "users": []
     }
     """
 
